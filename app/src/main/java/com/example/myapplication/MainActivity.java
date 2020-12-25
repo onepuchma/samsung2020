@@ -8,41 +8,34 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView lblresult;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    TextView  lblresult;
     Button vhod;
-    EditText pass,log;
-     final String password = "1234";
-     final String login = "artem";
-
-
+    EditText pass,login;
+    final String log = "artem";
+    final String pas = "1234";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        lblresult = findViewById(R.id.text);
-       pass = findViewById(R.id.password);
-        log = findViewById(R.id.login);
-        vhod= findViewById(R.id.vhod);
+        this.vhod = findViewById(R.id.vhod);
+        this.lblresult = findViewById(R.id.lblresult);
+        this.login = findViewById(R.id.login);
+        this.pass = findViewById(R.id.password);
         vhod.setOnClickListener(this);
-
     }
 
     @Override
-    public void onClick (View v) {
-        String s1 = pass.getText().toString();
-        String s2 = log.getText().toString();
-        if (s1.equals(password) && s2.equals(login)){
+    public void onClick(View v) {
+        String s1 = login.getText().toString();
+        String s2 = pass.getText().toString();
+        if (s1.equals(log) && s2.equals(pas)){
             lblresult.setText("Верно");
         }
-        else {
+        else{
             lblresult.setText("Вы ошиблись в логине или пароле");
-            log.setText(null);
-            pass.setText (null);
+            login.setText(null);
+            pass.setText(null);
         }
-
-
     }
 }
